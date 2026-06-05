@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: store
+stripe:
+  apiUrl: https://api.stripe.com/v1
+payment:
+  method: paypal
+Email:
+  port: 8080
+  host: c2i.thelinear.com
