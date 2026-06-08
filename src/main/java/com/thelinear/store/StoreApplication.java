@@ -14,12 +14,12 @@ public class StoreApplication {
 	static void main(String[] args) {
 
 	ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
+	UserService userService = context.getBean(UserService.class);
 
-		UserService userService = context.getBean(UserService.class);
 		userService.registerService(new User(001L,"tahhaj70@gmail.com","Muhammad Taha Javaid","Minions@678"));
 		userService.registerService(new User(001L,"tahhaj70@gmail.com","Muhammad Taha Javaid","Minions@678"));
-	// OrderService orderService = context.getBean(OrderService.class);
-	// orderService.placeOrder();
+	    // OrderService orderService = context.getBean(OrderService.class);
+	    // orderService.placeOrder();
 
 	}
 }
