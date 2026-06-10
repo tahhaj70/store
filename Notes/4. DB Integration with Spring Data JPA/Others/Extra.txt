@@ -1,0 +1,54 @@
+++ Data Access Technologies ++
+
+JDBC 1997 (JAVA Data Base Connectivity)
+   - JDBC is the standard low level Java API for interacting with databases.
+   - Allow Java Code to Execute SQL Directly
+   - We have to manually manage everything
+   - Very Powerful give us full control
+   - We have to write a lot of boilerplate code
+   - Part of Core Java EcoSystem
+   - Drivers handle real DB communication
+   - No object mapping support
+
+JPA 2006 (JAKARTA Persistence API)
+   - Also Called JAVA Persistence API
+   - A specification for mapping Java objects to database tables
+   - We don't write SQL queries
+   - We Work Directly With Objects
+   - Implementation : Hibernate,EclipseLink,TopLink
+   - Before JPA:
+       *) Hibernate existed (Most Commonly use ORM)
+       *) EclipseLink, TopLink also existed
+          But Each had different APIs
+          Problem: No standard ORM API in Java
+       *) NOT a framework → just a contract (rules)
+
+Hibernate
+   - Built on top of JDBC and Implementation of JPA
+   - An Object/Relational Mapper (ORM) Similar to Entity Framework
+   - We don't write SQL queries
+   - Provide Caching
+   - Hibernate Query Language
+   - Automatic Schema Generation
+
+Spring Data JPA
+   - We still have to write repetitive logic for common operation and things like pagination and auditing in JPA/Hibernate.
+   - So, Spring Data JPA is spring project made on top JPA/HIBERNATE to Even Simplify the Process
+   - Provides repository interfaces
+
+
+++ Design Applicational Model ++
+
+- Create Entities/Domain Classes OR Database Schema
+- And Draw Relationship Between them
+
+
+++ Flyway Migration Tool ++
+-- Database Script Versioning Migration Tool
+-- Reproduce database on any environment without any issue using versioning scripts included in project files
+-- We can also recover from mistakes by adding new versions.
+
+
+++ Flyway Migration Maven Plugin ++
+-- Reproduce database without even running program.
+-- You can see under
