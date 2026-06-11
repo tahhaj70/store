@@ -1,3 +1,4 @@
+======================================================== Introduction ===========================================================================
 ++ Data Access Technologies ++
 
 JDBC 1997 (JAVA Data Base Connectivity)
@@ -12,12 +13,12 @@ JDBC 1997 (JAVA Data Base Connectivity)
 
 JPA 2006 (JAKARTA Persistence API)
    - Also Called JAVA Persistence API
-   - A specification for mapping Java objects to database tables
+   - A specifications/interfaces for mapping Java objects to database tables
    - We don't write SQL queries
    - We Work Directly With Objects
    - Implementation : Hibernate,EclipseLink,TopLink
    - Before JPA:
-       *) Hibernate existed (Most Commonly use ORM)
+       *) Hibernate existed (Most Popular Commonly use ORM)
        *) EclipseLink, TopLink also existed
           But Each had different APIs
           Problem: No standard ORM API in Java
@@ -25,7 +26,7 @@ JPA 2006 (JAKARTA Persistence API)
 
 Hibernate
    - Built on top of JDBC and Implementation of JPA
-   - An Object/Relational Mapper (ORM) Similar to Entity Framework
+   - An Object/Relational Mapper (ORM) Similar to Entity Framework in .NET
    - We don't write SQL queries
    - Provide Caching
    - Hibernate Query Language
@@ -42,6 +43,7 @@ Spring Data JPA
 - Create Entities/Domain Classes OR Database Schema
 - And Draw Relationship Between them
 
+======================================================== 6 - Creating the Database Tables ===========================================================================
 
 ++ Flyway Migration Tool ++
 -- Database Script Versioning Migration Tool
@@ -49,6 +51,19 @@ Spring Data JPA
 -- We can also recover from mistakes by adding new versions.
 
 
-++ Flyway Migration Maven Plugin ++
+++ Flyway Migration - Maven Plugin ++
 -- Reproduce database without even running program.
--- You can see under
+
+
+======================================================== 7 - Creating the Domain Model ===========================================================================
+
+
+@Entity
+> Entity is java class that represent table in dataBase.
+> Each instance of Entity class will be row in dataBase.
+> Hibernate Automatically Map
+
+
+Lombok
+-> Popular Java Library
+-> Give us bunch of annotations that instruct compiler to auto generate utility method compile time.
