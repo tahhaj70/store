@@ -64,6 +64,6 @@ Spring Data JPA
 > Hibernate Automatically Map
 
 
-Lombok
+Lombok (Beautiful island of Indonesia)
 -> Popular Java Library
--> Give us bunch of annotations that instruct compiler to auto generate utility method compile time.
+-> Give us bunch of annotations that instruct IntelliJ compiler to auto generate utility method at compile time.
