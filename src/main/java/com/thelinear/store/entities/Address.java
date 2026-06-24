@@ -1,21 +1,20 @@
 package com.thelinear.store.entities;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
+
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Getter
+@ToString
 @Setter
 @Table(name = "addresses")
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-//    @Column(name = "user_id")
-//    private Long userId;
 
     @Column(name = "street")
     private String street;
@@ -28,5 +27,10 @@ public class Address {
 
     @Column(name = "state")
     private String state;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @ToString.Exclude
+    private User user;
 
 }

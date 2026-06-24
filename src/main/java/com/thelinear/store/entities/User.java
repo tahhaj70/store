@@ -2,12 +2,18 @@ package com.thelinear.store.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
+@ToString
 @Table(name = "users")
 public class User{
     @Id
@@ -23,5 +29,46 @@ public class User{
 
     @Column(name = "password")
     private String password;
+
+    @OneToMany(mappedBy = "user")
+    @Builder.Default
+    private List<Address> addresses = new ArrayList<>();
+
+    public void addAddress(Address address){
+       addresses.add(address);
+       address.setUser(this);
+    }
+
+    public void removeAddress(Address address){
+        addresses.remove(address);
+        address.setUser(null);
+    }
+
+    @ManyToMany
+    @JoinTable(name = "user_tags",
+    joinColumns = @JoinColumn(name = "user_id"),
+    inverseJoinColumns = @JoinColumn(name = "tag_id"))
+    @Builder.Default
+    private Set<Tag> tags = new LinkedHashSet<>();
+
+    public void addTag(String tagName){
+        Tag tag = new Tag(tagName);
+        tags.add(tag);
+        tag.getUsers().add(this);
+    }
+
+    public void removeTag(String tagName){
+        Tag tag = new Tag(tagName);
+        tags.remove(tag);
+        tag.getUsers().remove(this);
+    }
+
+    @OneToOne(mappedBy = "user")
+    @Builder.Default
+    private Profile profile;
+
+    public void addProfile(Profile profile){
+
+    }
 
 }
