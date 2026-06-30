@@ -1,5 +1,6 @@
 package com.thelinear.store;
 import com.thelinear.store.entities.Address;
+import com.thelinear.store.entities.Profile;
 import com.thelinear.store.entities.User;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -12,7 +13,9 @@ public class StoreApplication {
 
 		var user = User.builder().name("Taha").email("tahhaj70@gmail.com").password("12345").build();
 
-		user.addTag("MyFavourite");
+		var profile = Profile.builder().bio("This Taha").phoneNumber("03238832897").dateOfBirth("28-09-2001").loyaltyPoints(35).build();
+
+		user.addProfile(profile);
 
 		System.out.println(user);
 

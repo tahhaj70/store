@@ -7,11 +7,12 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+
+@Builder
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 @Entity
 @ToString
 @Table(name = "users")
@@ -64,11 +65,15 @@ public class User{
     }
 
     @OneToOne(mappedBy = "user")
-    @Builder.Default
     private Profile profile;
 
     public void addProfile(Profile profile){
-
+        this.setProfile(profile);
+        profile.setUser(this);
+    }
+    public void removeProfile(Profile profile){
+        profile.setUser(null);
+        setProfile(null);
     }
 
 }
