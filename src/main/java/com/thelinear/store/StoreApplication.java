@@ -1,8 +1,8 @@
 package com.thelinear.store;
-import com.thelinear.store.entities.Address;
-import com.thelinear.store.entities.Profile;
-import com.thelinear.store.entities.User;
+import com.thelinear.store.entities.*;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.math.BigDecimal;
 
 @SpringBootApplication
 public class StoreApplication {
@@ -17,7 +17,14 @@ public class StoreApplication {
 
 		user.addProfile(profile);
 
-		System.out.println(user);
+		var category = Category.builder().name("New Items").build();
+		var product1 = Product.builder().name("Product 1").price(BigDecimal.valueOf(13)).build();
+		var product2 = Product.builder().name("Product 2").price(BigDecimal.valueOf(50)).build();
+
+		category.addProducts(product1);
+		category.addProducts(product2);
+
+		System.out.println(category);
 
 	}
 }
