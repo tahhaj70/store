@@ -80,15 +80,15 @@ Spring Data JPA
             - UniDirectional (Navigation through one side only)
             - BiDirectional (Navigate through from both sides)
          * One Owner of Relationship
-            - Owner of Relationship will be decided through Database model.
-            - In above model address Entity chosen as owner because it had foreign key of user_id.
+            - Owner of Relationship will be decided through a Database model.
+            - In the above model address Entity chosen as owner because it had foreign key of user_id.
 
     -> Many to Many
          User                   ->   Tag
          @ManyToMany            ->  @ManyToMany
          @JoinTable(user_tags)  ->  mappedBy
 
-         * In this relationship anyone Entity can be owner of relationship.
+         * In this relationship anyone Entity can be the owner of the relationship.
          * Also here we use @jointable annotation. Because in many-to-many relationship
            we always have separate table for these entities.
 

@@ -1,44 +1,24 @@
 package com.thelinear.store.entities;
 
-
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
-
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
-@ToString
 @Entity
-@Table(name = "categories")
+@Table(name = "categories", schema = "store")
 public class Category {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private byte id;
+    @Column(name = "id", nullable = false)
+    private Byte id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
     @OneToMany(mappedBy = "category")
-    @Builder.Default
-    private List<Product> products =  new ArrayList<Product>();
-
-    public void addProducts(Product product) {
-        this.products.add(product);
-        product.setCategory(this);
-    }
-
-    public void removeProducts(Product product) {
-        this.products.remove(product);
-        product.setCategory(null);
-    }
-
-
+    private Set<Product> products = new LinkedHashSet<>();
 }

@@ -76,4 +76,11 @@ public class User{
         setProfile(null);
     }
 
+    @ManyToMany
+    @JoinTable(name = "wishlist",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id"))
+    @Builder.Default
+    private Set<Profile> profiles = new LinkedHashSet<>();
+
 }
