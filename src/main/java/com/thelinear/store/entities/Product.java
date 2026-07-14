@@ -31,7 +31,7 @@ public class Product {
     private Category category;
 
 
-    @ManyToMany(mappedBy = "profiles")
+    @ManyToMany(mappedBy = "wishList")
     @ToString.Exclude
     private Set<User> users = new LinkedHashSet<>();
 }

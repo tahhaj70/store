@@ -1,6 +1,7 @@
 package com.thelinear.store.entities;
 import jakarta.persistence.*;
 import lombok.*;
+import org.jspecify.annotations.NonNull;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -71,7 +72,7 @@ public class User{
         this.setProfile(profile);
         profile.setUser(this);
     }
-    public void removeProfile(Profile profile){
+    public void removeProfile(@NonNull Profile profile){
         profile.setUser(null);
         setProfile(null);
     }
@@ -81,6 +82,6 @@ public class User{
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id"))
     @Builder.Default
-    private Set<Profile> profiles = new LinkedHashSet<>();
+    private Set<Product> wishList = new LinkedHashSet<>();
 
 }

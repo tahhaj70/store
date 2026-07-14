@@ -1,7 +1,7 @@
 package com.thelinear.store.UserService;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("Legacy Service")
 public class UserService{
     private UserRepository userRepository;
     private NotificationService notificationService;
