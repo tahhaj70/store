@@ -54,7 +54,7 @@ Spring Data JPA
 ++ Flyway Migration - Maven Plugin ++
 -- Reproduce database without even running program.
 
-================================================ 7 - Creating the Domain Model ===========================================================================
+================================================ 7 - Creating the Domain Model ==============================================================================
 
 ++ @Entity ++
     - Entity is java class that represent table in dataBase.
@@ -109,4 +109,25 @@ Spring Data JPA
 - Using Re
 
 
-Save and Flush
+SaveAndFlush
+Cascade
+Fetch Strategy
+
+
+
+================================================   9 - Custom Queries  =========================================================================================
+
+
+
+
+
+
+================================================  10 - Dynamic Queries =========================================================================================
+
+
+
+
+
+
+
+
